@@ -56,7 +56,7 @@ param (
         #Current status running and previous up
         if ($PreviousStatus -eq 'Running' -and $CurrentStatus -eq 'Running')
         {
-            Write-Warning -Message "$Computer $ServiceName still running"
+            Write-Output "$Computer $ServiceName still running"
             Continue
         }
 
@@ -73,7 +73,7 @@ param (
         if ($PreviousStatus -eq 'Not Running' -and $CurrentStatus -eq 'Not Running')
         {
             Write-Warning -Message "$Computer $ServiceName still not running"
-            New-Item -Path $Path$ComputerName -ItemType File -Force | Out-Null
+            New-Item -Path $NewPath -ItemType File -Force | Out-Null
             Continue
         }
 
