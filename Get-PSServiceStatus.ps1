@@ -65,7 +65,7 @@ param (
         {
             Write-Warning -Message "$Computer $ServiceName now running"
             Remove-Item -Path $NewPath -Force | Out-Null
-            Send-MailMessage -Body ' ' -From "$FromAddress" -SmtpServer "$SmtpServer" -Subject "$Computer $ServiceName is now running" -To $ToAddress 
+            Send-MailMessage -Body ' ' -From $FromAddress -SmtpServer $SmtpServer -Subject "$Computer $ServiceName is now running" -To $ToAddress 
             Continue
         }
 
@@ -82,7 +82,7 @@ param (
         {
             Write-Warning -Message "$Computer $ServiceName is not running"
             New-Item -Path $NewPath -ItemType File -Force | Out-Null
-            Send-MailMessage -Body ' ' -From "$FromAddress" -SmtpServer "$SmtpServer" -Subject "$Computer $ServiceName is not running" -To $ToAddress 
+            Send-MailMessage -Body ' ' -From $FromAddress -SmtpServer $SmtpServer -Subject "$Computer $ServiceName is not running" -To $ToAddress 
             Continue
         }
     }
